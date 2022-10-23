@@ -12,6 +12,30 @@ type DoubleNode struct {
 	next *DoubleNode
 }
 
+func (d *DoubleNode) Prev() *DoubleNode {
+	return d.prev
+}
+
+func (d *DoubleNode) SetPrev(prev *DoubleNode) {
+	d.prev = prev
+}
+
+func (d *DoubleNode) Data() any {
+	return d.data
+}
+
+func (d *DoubleNode) SetData(data any) {
+	d.data = data
+}
+
+func (d *DoubleNode) Next() *DoubleNode {
+	return d.next
+}
+
+func (d *DoubleNode) SetNext(next *DoubleNode) {
+	d.next = next
+}
+
 func NewDoubleNode(data any) *DoubleNode {
 	return &DoubleNode{nil, data, nil}
 }
