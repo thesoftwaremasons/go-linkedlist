@@ -8,11 +8,15 @@ type node struct {
 }
 type DoubleNode struct {
 	prev *DoubleNode
-	data int
+	data any
 	next *DoubleNode
 }
 
-func AddDoubleNode(list *DoubleNode, val int) *DoubleNode {
+func NewDoubleNode(data any) *DoubleNode {
+	return &DoubleNode{nil, data, nil}
+}
+
+func AddDoubleNode(list *DoubleNode, val any) *DoubleNode {
 	//2,5,4
 	head := list
 	if list.next == nil {
