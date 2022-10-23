@@ -6,17 +6,17 @@ type node struct {
 	data int
 	next *node
 }
-type doubleNode struct {
-	prev *doubleNode
+type DoubleNode struct {
+	prev *DoubleNode
 	data int
-	next *doubleNode
+	next *DoubleNode
 }
 
-func AddDoubleNode(list *doubleNode, val int) *doubleNode {
+func AddDoubleNode(list *DoubleNode, val int) *DoubleNode {
 	//2,5,4
 	head := list
 	if list.next == nil {
-		newNode := &doubleNode{
+		newNode := &DoubleNode{
 			prev: head,
 			data: val,
 			next: nil,
@@ -26,7 +26,7 @@ func AddDoubleNode(list *doubleNode, val int) *doubleNode {
 		for list.next != nil {
 			list = list.next
 		}
-		newNode := &doubleNode{
+		newNode := &DoubleNode{
 			prev: list,
 			data: val,
 			next: nil,
@@ -54,7 +54,7 @@ func AddNode(list *node, val int) *node {
 	}
 	return list
 }
-func DeleteCircularNode(list *doubleNode, pos int) *doubleNode {
+func DeleteCircularNode(list *DoubleNode, pos int) *DoubleNode {
 	head := list
 	count := 1
 	if pos == 1 {
@@ -74,9 +74,9 @@ func DeleteCircularNode(list *doubleNode, pos int) *doubleNode {
 	return head
 }
 
-func ReverseCicularNode(list *doubleNode) *doubleNode {
-	var prev *doubleNode = nil
-	var middle *doubleNode = nil
+func ReverseCicularNode(list *DoubleNode) *DoubleNode {
+	var prev *DoubleNode = nil
+	var middle *DoubleNode = nil
 	next := list
 	for next.next != nil {
 		prev = middle
@@ -86,7 +86,7 @@ func ReverseCicularNode(list *doubleNode) *doubleNode {
 	}
 	return middle
 }
-func DisplayDoubleLinkedList(list *doubleNode) {
+func DisplayDoubleLinkedList(list *DoubleNode) {
 	for list.next != nil {
 		fmt.Println(list.data)
 		list = list.next
