@@ -2,9 +2,9 @@ package go_linkedlist
 
 import "fmt"
 
-type node struct {
+type Node struct {
 	data int
-	next *node
+	next *Node
 }
 type DoubleNode struct {
 	prev *DoubleNode
@@ -40,9 +40,9 @@ func AddDoubleNode(list *DoubleNode, val any) *DoubleNode {
 	return head
 }
 
-func AddNode(list *node, val int) *node {
+func AddNode(list *Node, val int) *Node {
 	//1,5,7,10,49
-	newNode := &node{
+	newNode := &Node{
 		data: val,
 		next: nil,
 	}
@@ -98,12 +98,12 @@ func DisplayDoubleLinkedList(list *DoubleNode) {
 	fmt.Println(list.data)
 }
 
-func DeleteBeginingNode(list *node) *node {
+func DeleteBeginingNode(list *Node) *Node {
 	list = list.next
 	return list
 
 }
-func DeleteFromEndOfNode(list *node) *node {
+func DeleteFromEndOfNode(list *Node) *Node {
 	holder := list
 	for list.next != nil {
 		if list.next.next == nil {
@@ -114,7 +114,7 @@ func DeleteFromEndOfNode(list *node) *node {
 	}
 	return holder
 }
-func DeleteFromPosition(list *node, position int) *node {
+func DeleteFromPosition(list *Node, position int) *Node {
 	holder := list
 	count := 1
 	for list.next != nil {
@@ -128,9 +128,9 @@ func DeleteFromPosition(list *node, position int) *node {
 	return holder
 }
 
-func ReverseArray(list *node) *node {
-	prev := &node{}
-	middle := &node{}
+func ReverseArray(list *Node) *Node {
+	prev := &Node{}
+	middle := &Node{}
 	next := list
 	for next.next != nil {
 		prev = middle
@@ -142,12 +142,12 @@ func ReverseArray(list *node) *node {
 
 }
 
-func AddCircularLinkedList(list *node, val int) *node {
+func AddCircularLinkedList(list *Node, val int) *Node {
 	//2.5,6,2,8
 
 	head, temp := list, list
 	//temp := list
-	newNode := &node{}
+	newNode := &Node{}
 	newNode.data = val
 
 	if temp == temp.next {
@@ -165,10 +165,10 @@ func AddCircularLinkedList(list *node, val int) *node {
 
 	return head
 }
-func AddInfrontCircularLinkedList(list *node, val int) *node {
+func AddInfrontCircularLinkedList(list *Node, val int) *Node {
 	head := list
 
-	temp := &node{
+	temp := &Node{
 		data: val,
 		next: head,
 	}
@@ -181,9 +181,9 @@ func AddInfrontCircularLinkedList(list *node, val int) *node {
 	return list
 }
 
-func AddAtTheEndOfCircularList(list *node, val int) *node {
+func AddAtTheEndOfCircularList(list *Node, val int) *Node {
 	head := list
-	newNode := &node{
+	newNode := &Node{
 		data: val,
 		next: nil,
 	}
@@ -195,7 +195,7 @@ func AddAtTheEndOfCircularList(list *node, val int) *node {
 	return head
 }
 
-func DeleteAtTheTopOfCircularList(list *node) *node {
+func DeleteAtTheTopOfCircularList(list *Node) *Node {
 	head := list
 	for head != list.next {
 		list = list.next
@@ -205,7 +205,7 @@ func DeleteAtTheTopOfCircularList(list *node) *node {
 	return head
 }
 
-func DeleteOfCircularListByPosition(list *node, position int) *node {
+func DeleteOfCircularListByPosition(list *Node, position int) *Node {
 
 	head := list
 	count := 1
@@ -225,7 +225,7 @@ func DeleteOfCircularListByPosition(list *node, position int) *node {
 	return head
 }
 
-func DisplayCircularLinkedList(list *node) {
+func DisplayCircularLinkedList(list *Node) {
 	head := list
 	for head != list.next {
 		fmt.Println(list.data)
@@ -234,15 +234,15 @@ func DisplayCircularLinkedList(list *node) {
 	fmt.Println(list.data)
 }
 
-func Display(list *node) {
+func Display(list *Node) {
 	temp := list
 	for temp != nil {
 		fmt.Println(temp.data)
 		temp = temp.next
 	}
 }
-func MergeLinkedList(firstNode *node, secondNode *node) *node {
-	holder, head := &node{}, &node{}
+func MergeLinkedList(firstNode *Node, secondNode *Node) *Node {
+	holder, head := &Node{}, &Node{}
 	if firstNode.data < secondNode.data {
 		holder = firstNode
 		firstNode = firstNode.next
