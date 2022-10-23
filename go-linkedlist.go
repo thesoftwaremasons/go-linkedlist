@@ -16,7 +16,7 @@ func NewDoubleNode(data any) *DoubleNode {
 	return &DoubleNode{nil, data, nil}
 }
 
-func AddDoubleNode(list *DoubleNode, val any) *DoubleNode {
+func AddDoubleNode(list *DoubleNode, val int) *DoubleNode {
 	//2,5,4
 	head := list
 	if list.next == nil {
